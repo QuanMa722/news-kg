@@ -1,1 +1,3 @@
-# news-kg
+***
+# Transform News into Knowledge Graphs Easily and Conveniently
+***
