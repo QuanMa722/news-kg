@@ -2,10 +2,9 @@
 
 from fake_useragent import UserAgent
 from zhipuai import ZhipuAI
+import webbrowser
 import requests
 import re
-import sys
-import webbrowser
 
 
 class LM:
@@ -27,6 +26,7 @@ class LM:
 
 
 class News:
+
     ua = UserAgent()
     headers = {
         'User-Agent': ua.random
@@ -65,7 +65,10 @@ class Kg:
             {"source": "武汉","target": "暴雪冻雨","type": "遭遇","rela": "天气现象"}
         """
 
-        user = f"你是一个知识图谱专家，请你根据输入的新闻 {self.news_text} 概括出绘制知识图谱的节点和边，并得到类似于以下的 JSON 结果，只需返回 JSON 结果即可，不要除json以外的话。" + test_json
+        user = (f"你是一个知识图谱专家，"
+                f"请你根据输入的新闻 {self.news_text} 概括出绘制知识图谱的节点和边，"
+                f"并得到类似于以下的 JSON 结果，"
+                f"只需返回 JSON 结果即可，不要除json以外的话。") + test_json
 
         lm = LM(user)
         news_json = lm.get_resp()
@@ -74,6 +77,22 @@ class Kg:
         match = re.search(pattern, news_json, re.DOTALL)
 
         news_json = match.group()
+
+        # user = (f"已下是一个知识图谱的json数据{news_json}，"
+        #         f"你需要对这些数据进行修整，"
+        #         f"例如湖北换为湖北省之类的，"
+        #         f"其中包含省份与城市之间可以新添数据使之连接起来，"
+        #         f"尽可能使这些节点能连接起来，"
+        #         f"修改后以json数据形式返回。")
+        #
+        # lm_modify = LM(user)
+        # news_json = lm_modify.get_resp()
+        # pattern = r'\[(.*?)\]'
+        # match = re.search(pattern, news_json, re.DOTALL)
+        #
+        # news_json = match.group()
+
+        print(news_json)
 
         self.generate_html(news_json)
 

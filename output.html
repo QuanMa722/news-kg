@@ -10,14 +10,29 @@
     
         [
   {"source": "湖北省", "target": "连续冻雨", "type": "遭遇", "rela": "天气现象"},
-  {"source": "湖北省", "target": "间断性大雨", "type": "遭遇", "rela": "天气现象"},
+  {"source": "湖北省", "target": "大雨", "type": "遭遇", "rela": "天气现象"},
   {"source": "湖北省", "target": "暴雪", "type": "遭遇", "rela": "天气现象"},
   {"source": "湖北省", "target": "冰粒", "type": "遭遇", "rela": "天气现象"},
   {"source": "湖北省", "target": "雨夹雪", "type": "遭遇", "rela": "天气现象"},
-  {"source": "武汉", "target": "连续降水", "type": "经历", "rela": "天气现象", "duration": "8天", "total": "95.8毫米"},
-  {"source": "武汉", "target": "连续冰冻", "type": "经历", "rela": "天气现象", "duration": "约110小时"},
-  {"source": "潜江", "target": "最大降水量", "type": "记录", "rela": "天气现象", "amount": "128毫米"},
-  {"source": "潜江", "target": "积雪", "type": "观测", "rela": "天气现象", "depth": "29厘米", "record": "打破历史纪录"}
+  {"source": "武汉市", "target": "连续降水", "type": "经历", "rela": "天气现象"},
+  {"source": "武汉市", "target": "冻雨", "type": "经历", "rela": "天气现象"},
+  {"source": "武汉市", "target": "积雪", "type": "出现", "rela": "天气现象"},
+  {"source": "潜江市", "target": "最大降水量", "type": "记录", "rela": "天气现象"},
+  {"source": "潜江市", "target": "积雪", "type": "记录", "rela": "天气现象"},
+  {"source": "武汉市", "target": "冻雨量", "type": "估算", "rela": "天气现象"},
+  {"source": "武汉市", "target": "逆温层", "type": "经历", "rela": "天气现象"},
+  {"source": "湖北省", "target": "雨雪结束", "type": "预期", "rela": "天气现象"},
+  {"source": "南方地区", "target": "大回暖", "type": "预期", "rela": "天气现象"},
+  {"source": "湖北省", "target": "冰凌脱落", "type": "注意", "rela": "安全隐患"},
+  
+  // 补充省份与城市之间的连接
+  {"source": "湖北省", "target": "武汉市", "type": "包含", "rela": "行政关系"},
+  {"source": "湖北省", "target": "潜江市", "type": "包含", "rela": "行政关系"},
+  
+  // 补充天气现象与省份之间的联系
+  {"source": "连续冻雨", "target": "湖北省", "type": "影响", "rela": "天气与地区关系"},
+  {"source": "大雨", "target": "湖北省", "type": "影响", "rela": "天气与地区关系"},
+  // 其他天气现象与省份的关联可以依此类推添加
 ]
         
         ;
